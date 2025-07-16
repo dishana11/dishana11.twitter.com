@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Tech Automation - AI-Powered Social Media Bot</title>
+    <meta name="description" content="Automate your Twitter presence with AI. Generate 30+ daily tech posts, news updates, startup funding alerts, and viral content.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text">TwitterBot AI</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#setup" class="nav-link">Setup</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="https://github.com/yourusername/twitter-tech-automation" class="nav-link github-link" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>AI-Powered Social Media Automation</span>
+                </div>
+                <h1 class="hero-title">
+                    Automate Your <span class="gradient-text">Twitter Presence</span> with AI
+                </h1>
+                <p class="hero-description">
+                    Generate 30+ daily tech posts automatically. From breaking news to viral memes, 
+                    our AI creates engaging content that sounds authentically human.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Daily Posts</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Automation</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">AI</div>
+                        <div class="stat-label">Powered</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#setup" class="btn btn-primary">
+                        <span>Get Started</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                        <span>Watch Demo</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="tweet-demo">
+                            <div class="tweet-header">
+                                <div class="tweet-avatar">🤖</div>
+                                <div class="tweet-info">
+                                    <div class="tweet-name">Your Bot</div>
+                                    <div class="tweet-handle">@yourhandle</div>
+                                </div>
+                            </div>
+                            <div class="tweet-content">
+                                🚀 Just In: Nvidia launches next-gen Blackwell chips with insane AI capabilities.<br><br>
+                                Game-changer for inference at scale.<br><br>
+                                Is this the beginning of the post-GPU era?<br><br>
+                                <span class="hashtags">#Nvidia #AI #TechNews #Blackwell</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-card card-1">📰 Tech News</div>
+                    <div class="floating-card card-2">💰 Funding</div>
+                    <div class="floating-card card-3">🧑‍💻 Jobs</div>
+                    <div class="floating-card card-4">😂 Humor</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-description">Everything you need to dominate Twitter with AI-generated content</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3 class="feature-title">Tech News Posts</h3>
+                    <p class="feature-description">10 daily posts covering latest news from Nvidia, Tesla, Google, Meta, OpenAI, and more.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">10 posts/day</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Startup Funding</h3>
+                    <p class="feature-description">5 daily posts about funding rounds, YC updates, and venture capital news.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">5 posts/day</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧑‍💻</div>
+                    <h3 class="feature-title">Tech Opportunities</h3>
+                    <p class="feature-description">5 daily posts about jobs, internships, hackathons, and grants in tech.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">5 posts/day</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">😂</div>
+                    <h3 class="feature-title">Viral Humor</h3>
+                    <p class="feature-description">10 daily posts with relatable tech humor, memes, and viral content.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">10 posts/day</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI-Powered</h3>
+                    <p class="feature-description">Uses Google Gemini AI to generate human-like, engaging content.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">Gemini AI</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3 class="feature-title">Daily Reports</h3>
+                    <p class="feature-description">Get email summaries of all generated and posted content.</p>
+                    <div class="feature-stats">
+                        <span class="stat-badge">Email alerts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">See It In Action</h2>
+                <p class="section-description">Real examples of AI-generated content</p>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-category">
+                    <h3 class="demo-title">🔬 Tech News</h3>
+                    <div class="demo-post">
+                        <div class="post-content">
+                            🚀 Just In: Nvidia launches its next-gen Blackwell chips with insane AI capabilities.<br><br>
+                            Game-changer for inference at scale.<br><br>
+                            Is this the beginning of the post-GPU era?<br><br>
+                            <span class="hashtags">#Nvidia #AI #TechNews #Blackwell #Semiconductors</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-category">
+                    <h3 class="demo-title">💰 Startup Funding</h3>
+                    <div class="demo-post">
+                        <div class="post-content">
+                            💸 Startup Alert:<br><br>
+                            Scale AI just raised $1B to fuel their data labeling army.<br><br>
+                            Human feedback > ever more valuable.<br><br>
+                            Let the AI wars continue 🧠⚔️<br><br>
+                            <span class="hashtags">#StartupFunding #ScaleAI #YCombinator #VC #AInews</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-category">
+                    <h3 class="demo-title">🧑‍💻 Opportunities</h3>
+                    <div class="demo-post">
+                        <div class="post-content">
+                            🚨 Google Summer of Code 2024 applications are OPEN!<br><br>
+                            💰 $6,000 stipend<br>
+                            🌍 Remote work<br>
+                            📚 Mentorship included<br><br>
+                            Deadline: April 2nd<br><br>
+                            Don't sleep on this! 👇<br><br>
+                            <span class="hashtags">#GSoC #Google #OpenSource #Internship #TechJobs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-category">
+                    <h3 class="demo-title">😂 Tech Humor</h3>
+                    <div class="demo-post">
+                        <div class="post-content">
+                            🧠 Me trying to explain to my mom that I *train models for a living*, not people.<br><br>
+                            Mom: "So you're like a teacher?"<br><br>
+                            Me: "More like... God to a robot 🤖"<br><br>
+                            <span class="hashtags">#TechHumor #MLengineer #Meme #AI #Relatable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Section -->
+    <section id="setup" class="setup">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quick Setup</h2>
+                <p class="section-description">Get your automation running in minutes</p>
+            </div>
+            <div class="setup-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Clone Repository</h3>
+                        <p class="step-description">Download the code from GitHub</p>
+                        <div class="code-block">
+                            <code>git clone https://github.com/yourusername/twitter-tech-automation.git</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install Dependencies</h3>
+                        <p class="step-description">Install required packages</p>
+                        <div class="code-block">
+                            <code>npm install</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Configure API Keys</h3>
+                        <p class="step-description">Add your Twitter and Gemini API credentials</p>
+                        <div class="code-block">
+                            <code>cp .env.example .env<br># Edit .env with your API keys</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Start Automation</h3>
+                        <p class="step-description">Launch the bot and start posting</p>
+                        <div class="code-block">
+                            <code>npm start</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple Pricing</h2>
+                <p class="section-description">Choose the plan that fits your needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Open Source</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-period">/forever</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ Full source code</div>
+                        <div class="feature">✅ Self-hosted</div>
+                        <div class="feature">✅ 30+ daily posts</div>
+                        <div class="feature">✅ All AI features</div>
+                        <div class="feature">✅ Community support</div>
+                    </div>
+                    <a href="https://github.com/yourusername/twitter-tech-automation" class="pricing-btn btn-outline">
+                        Get Started Free
+                    </a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Hosted Service</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">29</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ Fully managed hosting</div>
+                        <div class="feature">✅ No setup required</div>
+                        <div class="feature">✅ Advanced analytics</div>
+                        <div class="feature">✅ Priority support</div>
+                        <div class="feature">✅ Custom scheduling</div>
+                    </div>
+                    <a href="mailto:dishanarupani@gmail.com" class="pricing-btn btn-primary">
+                        Contact for Hosting
+                    </a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Enterprise</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">99</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature">✅ Multiple accounts</div>
+                        <div class="feature">✅ Custom AI training</div>
+                        <div class="feature">✅ White-label solution</div>
+                        <div class="feature">✅ Dedicated support</div>
+                        <div class="feature">✅ SLA guarantee</div>
+                    </div>
+                    <a href="mailto:dishanarupani@gmail.com" class="pricing-btn btn-outline">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🤖</span>
+                        <span class="logo-text">TwitterBot AI</span>
+                    </div>
+                    <p class="footer-description">
+                        Automate your Twitter presence with AI-powered content generation.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Product</h4>
+                        <a href="#features" class="footer-link">Features</a>
+                        <a href="#demo" class="footer-link">Demo</a>
+                        <a href="#pricing" class="footer-link">Pricing</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="https://github.com/yourusername/twitter-tech-automation" class="footer-link">GitHub</a>
+                        <a href="#setup" class="footer-link">Documentation</a>
+                        <a href="mailto:dishanarupani@gmail.com" class="footer-link">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contact</h4>
+                        <a href="mailto:dishanarupani@gmail.com" class="footer-link">Email</a>
+                        <a href="https://twitter.com/yourusername" class="footer-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TwitterBot AI. Open source project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
