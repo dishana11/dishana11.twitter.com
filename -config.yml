@@ -1,0 +1,57 @@
+# GitHub Pages Configuration
+title: "TwitterBot AI - Automate Your Twitter Presence"
+description: "AI-powered Twitter automation tool that generates 30+ daily tech posts automatically"
+url: "https://yourusername.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SEO settings
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Social media
+twitter:
+  username: yourusername
+  card: summary_large_image
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Author
+author:
+  name: "TwitterBot AI"
+  email: "dishanarupani@gmail.com"
+
+# Logo
+logo: "/assets/images/logo.png"
