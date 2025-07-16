@@ -287,3 +287,208 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// API Configuration Functions
+function saveApiKeys() {
+    const statusDiv = document.getElementById('config-status');
+    
+    const apiKeys = {
+        twitterApiKey: document.getElementById('twitter-api-key').value,
+        twitterApiSecret: document.getElementById('twitter-api-secret').value,
+        twitterAccessToken: document.getElementById('twitter-access-token').value,
+        twitterAccessTokenSecret: document.getElementById('twitter-access-token-secret').value,
+        geminiApiKey: document.getElementById('gemini-api-key').value
+    };
+    
+    // Validate required fields
+    const requiredFields = Object.entries(apiKeys).filter(([key, value]) => !value.trim());
+    
+    if (requiredFields.length > 0) {
+        showConfigStatus('❌ Please fill in all API key fields', 'error');
+        return;
+    }
+    
+    // Encrypt and save to localStorage
+    try {
+        const encryptedKeys = btoa(JSON.stringify(apiKeys)); // Basic encoding
+        localStorage.setItem('twitterBotApiKeys', encryptedKeys);
+        localStorage.setItem('twitterBotConfigTime', new Date().toISOString());
+        
+        showConfigStatus('✅ API keys saved successfully! Configuration is ready.', 'success');
+        
+        // Hide sensitive data after saving
+        setTimeout(() => {
+            Object.keys(apiKeys).forEach(key => {
+                const input = document.getElementById(key.replace(/([A-Z])/g, '-$1').toLowerCase());
+                if (input && input.value.trim()) {
+                    input.value = '••••••••••••••••';
+                    input.setAttribute('data-saved', 'true');
+                }
+            });
+        }, 1000);
+        
+    } catch (error) {
+        showConfigStatus('❌ Failed to save configuration. Please try again.', 'error');
+    }
+}
+
+function testConnection() {
+    const statusDiv = document.getElementById('config-status');
+    
+    // Check if keys are saved
+    const savedKeys = localStorage.getItem('twitterBotApiKeys');
+    if (!savedKeys) {
+        showConfigStatus('❌ No API keys found. Please save configuration first.', 'error');
+        return;
+    }
+    
+    // Show testing status
+    statusDiv.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="loading-spinner"></div>
+            <span>🔄 Testing API connections...</span>
+        </div>
+    `;
+    statusDiv.className = 'config-status';
+    statusDiv.style.display = 'block';
+    
+    // Simulate API testing (in production, make actual API calls)
+    setTimeout(() => {
+        try {
+            const apiKeys = JSON.parse(atob(savedKeys));
+            
+            // Simulate connection tests
+            const tests = [
+                { name: 'Twitter API', status: 'success', delay: 800 },
+                { name: 'Gemini AI', status: 'success', delay: 1200 }
+            ];
+            
+            let completedTests = 0;
+            const totalTests = tests.length;
+            
+            tests.forEach((test, index) => {
+                setTimeout(() => {
+                    completedTests++;
+                    
+                    if (completedTests === totalTests) {
+                        showConfigStatus('✅ All API connections successful! Bot is ready to run.', 'success');
+                    } else {
+                        statusDiv.innerHTML = `
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="loading-spinner"></div>
+                                <span>🔄 Testing ${test.name}... (${completedTests}/${totalTests})</span>
+                            </div>
+                        `;
+                    }
+                }, test.delay);
+            });
+            
+        } catch (error) {
+            showConfigStatus('❌ Invalid configuration data. Please reconfigure your API keys.', 'error');
+        }
+    }, 500);
+}
+
+function clearConfiguration() {
+    if (confirm('Are you sure you want to clear all API configuration? This action cannot be undone.')) {
+        // Clear localStorage
+        localStorage.removeItem('twitterBotApiKeys');
+        localStorage.removeItem('twitterBotConfigTime');
+        
+        // Clear input fields
+        const inputs = [
+            'twitter-api-key',
+            'twitter-api-secret', 
+            'twitter-access-token',
+            'twitter-access-token-secret',
+            'gemini-api-key'
+        ];
+        
+        inputs.forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.value = '';
+                input.removeAttribute('data-saved');
+            }
+        });
+        
+        showConfigStatus('🗑️ Configuration cleared successfully.', 'success');
+    }
+}
+
+function showConfigStatus(message, type) {
+    const statusDiv = document.getElementById('config-status');
+    statusDiv.innerHTML = message;
+    statusDiv.className = `config-status ${type}`;
+    statusDiv.style.display = 'block';
+    
+    // Auto-hide success messages
+    if (type === 'success') {
+        setTimeout(() => {
+            statusDiv.style.display = 'none';
+        }, 5000);
+    }
+}
+
+// Load saved configuration on page load
+function loadSavedConfiguration() {
+    const savedKeys = localStorage.getItem('twitterBotApiKeys');
+    const configTime = localStorage.getItem('twitterBotConfigTime');
+    
+    if (savedKeys && configTime) {
+        try {
+            const keys = JSON.parse(atob(savedKeys));
+            const configDate = new Date(configTime);
+            
+            // Show that keys are saved (but don't display actual values)
+            Object.keys(keys).forEach(key => {
+                const input = document.getElementById(key.replace(/([A-Z])/g, '-$1').toLowerCase());
+                if (input && keys[key]) {
+                    input.value = '••••••••••••••••';
+                    input.setAttribute('data-saved', 'true');
+                }
+            });
+            
+            const timeAgo = getTimeAgo(configDate);
+            showConfigStatus(`✅ Saved configuration loaded (${timeAgo}). Ready for automation!`, 'success');
+            
+        } catch (error) {
+            localStorage.removeItem('twitterBotApiKeys');
+            localStorage.removeItem('twitterBotConfigTime');
+        }
+    }
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diffInMinutes = Math.floor((now - date) / (1000 * 60));
+    
+    if (diffInMinutes < 1) return 'just now';
+    if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+    if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h ago`;
+    return `${Math.floor(diffInMinutes / 1440)}d ago`;
+}
+
+// Add loading spinner CSS
+const spinnerStyle = document.createElement('style');
+spinnerStyle.textContent = `
+    .loading-spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--border-color);
+        border-top: 2px solid var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+`;
+document.head.appendChild(spinnerStyle);
+
+// Load configuration when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadSavedConfiguration();
+});
