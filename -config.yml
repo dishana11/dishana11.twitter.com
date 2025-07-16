@@ -1,8 +1,8 @@
 # GitHub Pages Configuration
 title: "TwitterBot AI - Automate Your Twitter Presence"
 description: "AI-powered Twitter automation tool that generates 30+ daily tech posts automatically"
-url: "https://yourusername.github.io"
-baseurl: ""
+url: "https://dishana11.github.io"
+baseurl: "/x"
 
 # Build settings
 markdown: kramdown
