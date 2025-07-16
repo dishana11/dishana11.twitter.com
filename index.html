@@ -240,6 +240,53 @@
                 <h2 class="section-title">Quick Setup</h2>
                 <p class="section-description">Get your automation running in minutes</p>
             </div>
+            
+            <!-- API Configuration Panel -->
+            <div class="api-config-panel">
+                <h3 class="config-title">🔑 API Configuration</h3>
+                <p class="config-description">Enter your API keys to enable automation</p>
+                
+                <div class="config-grid">
+                    <div class="config-section">
+                        <h4>Twitter/X API Keys</h4>
+                        <div class="input-group">
+                            <label>API Key</label>
+                            <input type="password" id="twitter-api-key" placeholder="Enter Twitter API Key">
+                        </div>
+                        <div class="input-group">
+                            <label>API Secret</label>
+                            <input type="password" id="twitter-api-secret" placeholder="Enter Twitter API Secret">
+                        </div>
+                        <div class="input-group">
+                            <label>Access Token</label>
+                            <input type="password" id="twitter-access-token" placeholder="Enter Access Token">
+                        </div>
+                        <div class="input-group">
+                            <label>Access Token Secret</label>
+                            <input type="password" id="twitter-access-token-secret" placeholder="Enter Access Token Secret">
+                        </div>
+                    </div>
+                    
+                    <div class="config-section">
+                        <h4>Gemini AI API</h4>
+                        <div class="input-group">
+                            <label>Gemini API Key</label>
+                            <input type="password" id="gemini-api-key" placeholder="Enter Gemini API Key">
+                        </div>
+                        <a href="https://makersuite.google.com/app/apikey" target="_blank" class="api-link">
+                            Get Gemini API Key →
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="config-actions">
+                    <button onclick="saveApiKeys()" class="btn btn-primary">Save Configuration</button>
+                    <button onclick="testConnection()" class="btn btn-secondary">Test Connection</button>
+                </div>
+                
+                <div class="config-status" id="config-status"></div>
+            </div>
+            
             <div class="setup-steps">
                 <div class="step">
                     <div class="step-number">1</div>
